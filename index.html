@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Muhammad Usman — Flutter Developer</title>
+  <meta name="description" content="Muhammad Usman builds production-grade mobile apps, not todo-list clones. Flutter developer from Faisalabad, Pakistan — WorkIn, Top 50 Innovative Pakistan 2026.">
+  <meta property="og:title" content="Muhammad Usman — Flutter Developer">
+  <meta property="og:description" content="I build production-grade mobile apps, not todo-list clones. WorkIn — Top 50 nationwide, Innovative Pakistan 2026.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#0B0D0A">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23FFB000' d='M16 2c-6 0-10 4.4-10 10 0 7 10 18 10 18s10-11 10-18c0-5.6-4-10-10-10zm0 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8z'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <noscript><style>.cursor-dot,.cursor-ring,.progress{display:none!important}</style></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Usman",
+    "jobTitle": "Flutter Developer",
+    "address": { "@type": "PostalAddress", "addressLocality": "Faisalabad", "addressCountry": "PK" },
+    "sameAs": [
+      "https://github.com/usman-codes-01",
+      "https://www.linkedin.com/in/muhammad-usman-81994a324/",
+      "https://www.instagram.com/usman.codes"
+    ],
+    "award": "Top 50 — Innovative Pakistan 2026",
+    "knowsAbout": ["Flutter", "Dart", "Firebase", "Google Maps Platform", "Agora RTC", "FastAPI", "Machine Learning"]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link mono" href="#main">skip to content</a>
+
+  <!-- one ambient field behind the whole site — the shared theme -->
+  <canvas class="ambient-canvas" id="ambient" aria-hidden="true"></canvas>
+
+  <!-- the guide: one little terminal-bot that walks you through the site,
+       speaking a line for whichever section you're in -->
+  <div class="guide" id="guide" aria-hidden="true">
+    <p class="guide-bubble mono" id="guideBubble">hey — let me show you around <span class="amber">↓</span></p>
+    <div class="guide-bot">
+      <svg viewBox="0 0 64 72" fill="none" aria-label="guide bot">
+        <line x1="32" y1="6" x2="32" y2="16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="32" cy="5" r="3.2" fill="currentColor"/>
+        <rect x="11" y="16" width="42" height="36" rx="10" fill="#141811" stroke="currentColor" stroke-width="2.5"/>
+        <circle class="guide-eye" cx="24" cy="31" r="3.4" fill="currentColor"/>
+        <circle class="guide-eye" cx="40" cy="31" r="3.4" fill="currentColor"/>
+        <rect class="guide-mouth" x="25" y="40" width="14" height="5" rx="2.5" fill="currentColor"/>
+        <line x1="19" y1="52" x2="19" y2="60" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="45" y1="52" x2="45" y2="60" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true">
+    <span class="cursor-label mono">VIEW</span>
+    <svg class="cursor-pin" viewBox="0 0 32 32"><path d="M16 2c-6 0-10 4.4-10 10 0 7 10 18 10 18s10-11 10-18c0-5.6-4-10-10-10zm0 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+  </div>
+
+  <!-- scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="nav">
+    <a href="#hero" class="nav-logo mono magnetic" data-cursor="link">usman<span>.codes</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <span class="nav-ink" id="navInk" aria-hidden="true"></span>
+      <a href="#about"    class="nav-link mono magnetic" data-cursor="link">01&nbsp;about</a>
+      <a href="#skills"   class="nav-link mono magnetic" data-cursor="link">02&nbsp;skills</a>
+      <a href="#work"     class="nav-link mono magnetic" data-cursor="link">03&nbsp;capstone</a>
+      <a href="#projects" class="nav-link mono magnetic" data-cursor="link">04&nbsp;projects</a>
+      <a href="#contact"  class="nav-link nav-link--cta mono magnetic" data-cursor="link">05&nbsp;contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ 01 · HERO — the ascii code-field ============ -->
+    <section class="hero" id="hero">
+      <div class="hero-urdu" id="heroUrdu" aria-hidden="true">عثمان</div>
+
+      <h1 class="hero-name" id="heroName">
+        <span class="hero-first" id="heroFirst">MUHAMMAD</span>
+        <span class="hero-big" id="scrambleName" aria-label="USMAN">USMAN</span>
+      </h1>
+
+      <div class="hero-top" id="heroTop">
+        <p class="hero-eyebrow mono">$ flutter doctor → no issues found! · based in Faisalabad, PK · 31.45° N, 73.13° E</p>
+      </div>
+
+      <div class="hero-thesis" id="heroThesis">
+        <p class="hero-line"><span class="hero-line-in">I build production-grade mobile apps,</span></p>
+        <p class="hero-line"><span class="hero-line-in"><span class="strike" id="strike">not todo-list clones.</span></span></p>
+      </div>
+
+      <div class="hero-foot" id="heroFoot">
+        <p class="hero-tags mono">FLUTTER · DART · FIREBASE · MAPS · AGORA<br><span class="amber">TOP 50 — INNOVATIVE PAKISTAN 2026</span></p>
+        <a href="#work" class="btn mono magnetic" data-cursor="link"><span class="btn-fill" aria-hidden="true"></span><span class="btn-text">SEE MY WORK&nbsp;&nbsp;→</span></a>
+        <p class="hero-scrollcue mono" aria-hidden="true">scroll<span>↓</span></p>
+      </div>
+    </section>
+
+    <!-- ============ 02 · ABOUT ============ -->
+    <section class="about" id="about">
+      <header class="sec-head">
+        <p class="sec-idx mono" data-reveal>01 / ABOUT</p>
+        <h2 class="sec-title" data-split>HUMAN README</h2>
+      </header>
+
+      <div class="about-grid">
+        <dl class="about-meta mono" data-reveal>
+          <div><dt>BASED</dt><dd>Faisalabad, PK</dd></div>
+          <div><dt>ROLE</dt><dd>Flutter Developer — stable channel</dd></div>
+          <div><dt>CLUB</dt><dd>President, Spectrum Club — NFC IEFR</dd></div>
+          <div><dt>AWARD</dt><dd class="amber">Top 50 — Innovative Pakistan 2026</dd></div>
+          <div><dt>HANDLE</dt><dd>@usman.codes</dd></div>
+        </dl>
+        <div class="about-copy">
+          <p data-words>I'm Muhammad Usman — a Flutter developer who likes the unglamorous parts of mobile: state that survives a dropped 3G connection, map markers that don't jitter, release builds that don't surprise anyone on demo day.</p>
+          <p data-words>As President of Spectrum Club at NFC IEFR, I spend half my week convincing engineering students to ship things in public. The other half I take my own advice — which is how WorkIn ended up Top 50 nationwide at Innovative Pakistan 2026.</p>
+          <p data-words>I'm looking for two kinds of people: software houses that build serious products, and founders who need an app that works on the first demo. If that's you — keep scrolling.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 · SKILLS — pubspec.yaml ============ -->
+    <section class="skills" id="skills">
+      <header class="sec-head">
+        <p class="sec-idx mono" data-reveal>02 / SKILLS — no progress bars; dependency versions don't lie</p>
+        <h2 class="sec-title" data-split>PUBSPEC.YAML</h2>
+      </header>
+
+      <div class="editor" id="editor">
+        <div class="editor-bar">
+          <span class="editor-dot editor-dot--amber"></span><span class="editor-dot"></span><span class="editor-dot"></span>
+          <span class="editor-file mono">pubspec.yaml — ~/muhammad-usman</span>
+          <span class="editor-hint mono">YAML · UTF-8</span>
+        </div>
+        <div class="editor-body" id="editorBody">
+          <ol class="code mono" id="code">
+            <li><span class="c"># pubspec.yaml — what I actually ship with</span></li>
+            <li>&nbsp;</li>
+            <li><span class="k">name</span><span class="pu">:</span> <span class="v">muhammad_usman</span></li>
+            <li><span class="k">description</span><span class="pu">:</span> <span class="s">Flutter developer from Faisalabad. Production-grade only.</span></li>
+            <li><span class="k">version</span><span class="pu">:</span> <span class="n">2026.6.0+top50</span></li>
+            <li>&nbsp;</li>
+            <li><span class="k">environment</span><span class="pu">:</span></li>
+            <li>&nbsp;&nbsp;<span class="k">sdk</span><span class="pu">:</span> <span class="s">"&gt;=production &lt;todo-clones"</span></li>
+            <li>&nbsp;</li>
+            <li><span class="k">dependencies</span><span class="pu">:</span></li>
+            <li>&nbsp;&nbsp;<span class="k">flutter</span><span class="pu">:</span> <span class="n">^expert</span>  <span class="c"># shipped apps, zero re-uploaded tutorials</span></li>
+            <li>&nbsp;&nbsp;<span class="k">dart</span><span class="pu">:</span> <span class="n">^expert</span></li>
+            <li>&nbsp;&nbsp;<span class="k">firebase_core</span><span class="pu">:</span> <span class="n">^expert</span>  <span class="c"># Firestore · Auth · FCM · Storage</span></li>
+            <li>&nbsp;&nbsp;<span class="k">google_maps_flutter</span><span class="pu">:</span> <span class="n">^expert</span>  <span class="c"># + Routes API — live tracking</span></li>
+            <li>&nbsp;&nbsp;<span class="k">agora_rtc_engine</span><span class="pu">:</span> <span class="n">^advanced</span>  <span class="c"># in-app voice &amp; video</span></li>
+            <li>&nbsp;&nbsp;<span class="k">cloudinary_sdk</span><span class="pu">:</span> <span class="n">^advanced</span>  <span class="c"># media pipelines</span></li>
+            <li>&nbsp;&nbsp;<span class="k">http</span><span class="pu">:</span> <span class="n">^expert</span>  <span class="c"># REST APIs — the boring kind that work</span></li>
+            <li>&nbsp;&nbsp;<span class="k">provider</span><span class="pu">:</span> <span class="n">^expert</span>  <span class="c"># MVVM</span></li>
+            <li>&nbsp;&nbsp;<span class="k">flutter_bloc</span><span class="pu">:</span> <span class="n">^advanced</span>  <span class="c"># Clean Architecture</span></li>
+            <li>&nbsp;&nbsp;<span class="k">riverpod</span><span class="pu">:</span> <span class="n">^learning</span>  <span class="c"># 2026's go-to state management</span></li>
+            <li>&nbsp;&nbsp;<span class="k">supabase_flutter</span><span class="pu">:</span> <span class="n">^learning</span>  <span class="c"># Postgres backend + realtime</span></li>
+            <li>&nbsp;&nbsp;<span class="k">graphql_flutter</span><span class="pu">:</span> <span class="n">^learning</span>  <span class="c"># typed APIs, no over-fetching</span></li>
+            <li>&nbsp;</li>
+            <li><span class="k">dev_dependencies</span><span class="pu">:</span></li>
+            <li>&nbsp;&nbsp;<span class="k">fastapi</span><span class="pu">:</span> <span class="n">^advanced</span>  <span class="c"># Python backends</span></li>
+            <li>&nbsp;&nbsp;<span class="k">scikit_learn</span><span class="pu">:</span> <span class="n">^working</span>  <span class="c"># classical ML</span></li>
+            <li>&nbsp;&nbsp;<span class="k">tflite</span><span class="pu">:</span> <span class="n">^working</span>  <span class="c"># on-device inference</span></li>
+            <li>&nbsp;&nbsp;<span class="k">git</span><span class="pu">:</span> <span class="n">^daily_driver</span></li>
+            <li>&nbsp;</li>
+            <li><span class="c"># flutter pub get → or just hire me.</span></li>
+          </ol>
+          <span class="caret" id="caret" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 · FEATURED CASE STUDY — WORKIN ============ -->
+    <section class="case" id="work" data-cursor-zone="pin">
+      <div class="case-pin" id="casePin">
+        <div class="case-urdu" aria-hidden="true" data-parallax="22">کام</div>
+
+        <header class="sec-head">
+          <p class="sec-idx mono" data-reveal>03 / CAPSTONE — FINAL YEAR PROJECT · workin/release-v1 · skip ahead anytime</p>
+          <h2 class="sec-title" data-split>WORKIN</h2>
+          <p class="sec-sub" data-reveal>An on-demand worker marketplace. Verified local labor, on a live map, in real time.</p>
+        </header>
+
+        <div class="case-grid">
+          <div class="case-stack" id="caseStack">
+            <article class="case-state">
+              <p class="case-tag mono">01 — THE PROBLEM</p>
+              <h3>Finding a verified electrician in a city of four million runs on phone calls and luck.</h3>
+              <p class="case-body">Hiring skilled local labor in Pakistan is word-of-mouth: no identity checks, no live status, no idea when — or if — anyone shows up. WorkIn replaces the phonebook with a radius. Open the map, and verified workers appear around you as the search pulse expands.</p>
+            </article>
+
+            <article class="case-state">
+              <p class="case-tag mono">02 — THE BUILD</p>
+              <h3>Maps, sockets and video calls — one Flutter codebase.</h3>
+              <ul class="case-feats">
+                <li><span class="mono amber">▸</span> Live worker tracking on a night map — Google Maps Platform + Routes API</li>
+                <li><span class="mono amber">▸</span> An expanding search-radius pulse that recruits workers as it grows</li>
+                <li><span class="mono amber">▸</span> Identity verification through an in-app camera flow → Cloudinary</li>
+                <li><span class="mono amber">▸</span> In-app voice &amp; video between customer and worker — Agora RTC</li>
+                <li><span class="mono amber">▸</span> Firestore + FCM keep job status honest; MVVM + Provider keep the code honest</li>
+              </ul>
+              <p class="case-stackrow mono">FLUTTER · FIREBASE · GOOGLE MAPS + ROUTES · AGORA RTC · CLOUDINARY · MVVM + PROVIDER</p>
+            </article>
+
+            <article class="case-state">
+              <p class="case-tag mono">03 — THE RESULT</p>
+              <div class="case-award">
+                <strong class="case-award-big" id="awardBig">TOP 50</strong>
+                <span class="case-award-sub mono">NATIONWIDE — INNOVATIVE PAKISTAN 2026</span>
+              </div>
+              <p class="case-body">Selected from projects across the country. Not bad for an app that started as a complaint about finding an electrician.</p>
+              <a class="case-link mono magnetic" data-cursor="view" href="https://github.com/usman-codes-01" target="_blank" rel="noopener">READ THE CODE ↗</a>
+            </article>
+          </div>
+
+          <div class="case-phone">
+            <div class="phone is-search" id="phone" aria-hidden="true">
+              <div class="phone-frame">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                  <div class="p-status mono"><span>21:47</span><span class="p-app">WORKIN</span><span>LTE&nbsp;▮▮▯</span></div>
+                  <div class="p-map">
+                    <div class="p-pulse"><i></i><i></i><i></i></div>
+                    <span class="p-you"></span>
+                    <span class="p-pin" style="--x:24%; --y:28%; --d:0s"></span>
+                    <span class="p-pin" style="--x:72%; --y:20%; --d:.15s"></span>
+                    <span class="p-pin" style="--x:64%; --y:56%; --d:.3s"></span>
+                    <span class="p-pin" style="--x:16%; --y:62%; --d:.45s"></span>
+                    <span class="p-pin p-pin--hot" style="--x:44%; --y:38%; --d:.6s"></span>
+                    <svg class="p-route" viewBox="0 0 100 130" preserveAspectRatio="none" aria-hidden="true"><path d="M50 86 L50 62 L44 62 L44 44"/></svg>
+                    <p class="p-scan mono">scanning radius · 2.4 km</p>
+                  </div>
+                  <div class="p-sheet">
+                    <span class="p-grab"></span>
+                    <div class="p-row">
+                      <span class="p-avatar mono">AK</span>
+                      <span class="p-info"><strong>Ali K. — Electrician</strong><em class="mono">★ 4.9 · 0.8 km · ID VERIFIED ✓</em></span>
+                      <span class="p-callbtn" title="video call">▸</span>
+                    </div>
+                  </div>
+                  <div class="p-award">
+                    <strong>TOP 50</strong>
+                    <span class="mono">INNOVATIVE PAKISTAN 2026</span>
+                    <em class="mono">selected nationwide</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-steps mono" id="caseSteps" aria-hidden="true">
+          <span class="case-step is-active">PROBLEM</span>
+          <span class="case-step">BUILD</span>
+          <span class="case-step">SHIP</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 · PROJECTS — free rail ============ -->
+    <section class="projects" id="projects">
+      <div class="proj-pin">
+        <header class="sec-head">
+          <p class="sec-idx mono" data-reveal>04 / PROJECTS — git log --oneline · drag the rail, or just scroll on</p>
+          <h2 class="sec-title" data-split>GIT LOG</h2>
+        </header>
+
+        <div class="proj-track" id="projTrack">
+          <article class="card" data-cursor="view" data-expand>
+            <div class="card-visual">
+              <div class="card-art art-carrom" aria-hidden="true">
+                <div class="carrom-board">
+                  <span class="carrom-pocket cp-tl"></span><span class="carrom-pocket cp-tr"></span>
+                  <span class="carrom-pocket cp-bl"></span><span class="carrom-pocket cp-br"></span>
+                  <span class="carrom-circle"></span>
+                  <span class="carrom-coin cc-1"></span><span class="carrom-coin cc-2"></span>
+                  <span class="carrom-striker"></span>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-idx mono">commit a3f9c12</p>
+              <h3>Multiplayer Carrom</h3>
+              <p>Real-time multiplayer carrom with physics that feel like an actual wooden board — friction, spin, pocket geometry.</p>
+              <dl class="card-specs mono">
+                <div><dt>platform</dt><dd>Android · iOS</dd></div>
+                <div><dt>engine</dt><dd>Flame + Forge2D physics</dd></div>
+                <div><dt>realtime</dt><dd>2-player live match</dd></div>
+                <div><dt>architecture</dt><dd>Clean Architecture · BLoC</dd></div>
+              </dl>
+              <p class="card-tags mono"><span>FLUTTER</span><span>FLAME</span><span>FORGE2D</span><span>BLOC</span><span>CLEAN ARCH</span></p>
+              <div class="card-detail"><div class="card-detail-in">
+                <p class="card-d-tag mono">▸ THE BUILD</p>
+                <ul class="card-d-list">
+                  <li>Forge2D rigid bodies — friction, restitution and angular damping tuned to feel like wood.</li>
+                  <li>Host-authoritative striker shots synced over sockets; clients interpolate between updates.</li>
+                </ul>
+                <p class="card-d-tag mono">▸ THE RESULT</p>
+                <p class="card-d-res">Plays like a board you'd actually argue over.</p>
+              </div></div>
+              <div class="card-foot">
+                <a class="card-link mono" href="https://github.com/usman-codes-01" target="_blank" rel="noopener" data-cursor="link">GITHUB ↗</a>
+                <span class="card-toggle mono"><span class="card-label">CASE</span><span class="card-chev">▸</span></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-cursor="view" data-expand>
+            <div class="card-visual">
+              <div class="card-art art-route" aria-hidden="true">
+                <svg viewBox="0 0 300 170" preserveAspectRatio="xMidYMid meet">
+                  <path class="route-ghost" d="M20 140 L80 140 L80 80 L150 80 L150 30 L240 30 L240 96 L280 96"/>
+                  <path class="route-live"  d="M20 140 L80 140 L80 80 L150 80 L150 30 L240 30 L240 96 L280 96"/>
+                  <circle class="route-node" cx="20"  cy="140" r="5"/>
+                  <circle class="route-node" cx="80"  cy="80"  r="5"/>
+                  <circle class="route-node" cx="150" cy="30"  r="5"/>
+                  <circle class="route-node route-node--hot" cx="240" cy="96" r="6"/>
+                  <circle class="route-node" cx="280" cy="96"  r="5"/>
+                </svg>
+                <p class="art-label mono">objective: minimized · 4 stops · 12.7 km</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-idx mono">commit 7e0b44d</p>
+              <h3>Smart Location Optimizer</h3>
+              <p>An ML backend that decides where things should go — route and location optimization with Random Forest and OR-Tools.</p>
+              <dl class="card-specs mono">
+                <div><dt>type</dt><dd>REST backend service</dd></div>
+                <div><dt>model</dt><dd>Random Forest predictor</dd></div>
+                <div><dt>solver</dt><dd>Google OR-Tools</dd></div>
+                <div><dt>i/o</dt><dd>stops in → optimal route out</dd></div>
+              </dl>
+              <p class="card-tags mono"><span>FASTAPI</span><span>RANDOM FOREST</span><span>OR-TOOLS</span><span>PYTHON</span></p>
+              <div class="card-detail"><div class="card-detail-in">
+                <p class="card-d-tag mono">▸ THE BUILD</p>
+                <ul class="card-d-list">
+                  <li>Random Forest scores cost &amp; feasibility for each candidate node.</li>
+                  <li>OR-Tools solves the routing on top of those predictions.</li>
+                  <li>Served as a clean FastAPI REST endpoint.</li>
+                </ul>
+                <p class="card-d-tag mono">▸ THE RESULT</p>
+                <p class="card-d-res">Give it the stops, it returns the shortest honest route.</p>
+              </div></div>
+              <div class="card-foot">
+                <a class="card-link mono" href="https://github.com/usman-codes-01" target="_blank" rel="noopener" data-cursor="link">GITHUB ↗</a>
+                <span class="card-toggle mono"><span class="card-label">CASE</span><span class="card-chev">▸</span></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-cursor="view" data-expand>
+            <div class="card-visual">
+              <div class="card-art art-emotion" aria-hidden="true">
+                <p class="emo mono">angry</p><p class="emo mono">disgust</p><p class="emo mono">fear</p>
+                <p class="emo emo--hot mono">happy&nbsp;0.94</p><p class="emo mono">neutral</p>
+                <p class="emo mono">sad</p><p class="emo mono">surprise</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-idx mono">commit c91d3af</p>
+              <h3>Emotion Recognition</h3>
+              <p>Seven facial emotions classified on-device with TFLite — no server round-trip, works in airplane mode.</p>
+              <dl class="card-specs mono">
+                <div><dt>inference</dt><dd>on-device · fully offline</dd></div>
+                <div><dt>model</dt><dd>EfficientNet-B0 (HSEmotion)</dd></div>
+                <div><dt>classes</dt><dd>7 emotions</dd></div>
+                <div><dt>latency</dt><dd>real-time, no server</dd></div>
+              </dl>
+              <p class="card-tags mono"><span>FLUTTER</span><span>TFLITE</span><span>EFFICIENTNET-B0</span><span>HSEMOTION</span></p>
+              <div class="card-detail"><div class="card-detail-in">
+                <p class="card-d-tag mono">▸ THE BUILD</p>
+                <ul class="card-d-list">
+                  <li>EfficientNet-B0 (HSEmotion) quantized down to a TFLite model.</li>
+                  <li>Runs on the live camera frame — nothing ever leaves the phone.</li>
+                </ul>
+                <p class="card-d-tag mono">▸ THE RESULT</p>
+                <p class="card-d-res">Seven emotions, real-time, even in airplane mode.</p>
+              </div></div>
+              <div class="card-foot">
+                <a class="card-link mono" href="https://github.com/usman-codes-01" target="_blank" rel="noopener" data-cursor="link">GITHUB ↗</a>
+                <span class="card-toggle mono"><span class="card-label">CASE</span><span class="card-chev">▸</span></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-cursor="view" data-expand>
+            <div class="card-visual">
+              <div class="card-art art-bite" aria-hidden="true">
+                <div class="bite-burger">
+                  <span class="bite-layer bite-bun-top"></span>
+                  <span class="bite-layer bite-salad"></span>
+                  <span class="bite-layer bite-patty"></span>
+                  <span class="bite-layer bite-bun-low"></span>
+                </div>
+                <p class="art-label mono">order #042 · preparing → on the way</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-idx mono">commit e5d2b90</p>
+              <h3>Campus Bite</h3>
+              <p>Campus food ordering, minus the canteen queue — browse the menu, order, and track it live from kitchen to hostel.</p>
+              <dl class="card-specs mono">
+                <div><dt>platform</dt><dd>Android · iOS</dd></div>
+                <div><dt>backend</dt><dd>Firebase · Firestore</dd></div>
+                <div><dt>realtime</dt><dd>live order status + FCM</dd></div>
+                <div><dt>state</dt><dd>Provider (MVVM)</dd></div>
+              </dl>
+              <p class="card-tags mono"><span>FLUTTER</span><span>FIREBASE</span><span>FIRESTORE</span><span>FCM</span><span>PROVIDER</span></p>
+              <div class="card-detail"><div class="card-detail-in">
+                <p class="card-d-tag mono">▸ THE BUILD</p>
+                <ul class="card-d-list">
+                  <li>Firestore menu &amp; cart; FCM pushes every order status change.</li>
+                  <li>Live order tracking from the kitchen to the hostel door.</li>
+                  <li>Provider / MVVM keeps the UI state honest under load.</li>
+                </ul>
+                <p class="card-d-tag mono">▸ THE RESULT</p>
+                <p class="card-d-res">The canteen queue, deleted.</p>
+              </div></div>
+              <div class="card-foot">
+                <a class="card-link mono" href="https://github.com/usman-codes-01" target="_blank" rel="noopener" data-cursor="link">GITHUB ↗</a>
+                <span class="card-toggle mono"><span class="card-label">CASE</span><span class="card-chev">▸</span></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-cursor="view" data-expand>
+            <div class="card-visual">
+              <div class="card-art art-med" aria-hidden="true">
+                <div class="med-cross"><span></span><span></span></div>
+                <p class="art-label mono">paracetamol 500mg · 3 pharmacies · nearest 0.6 km</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-idx mono">commit b80a7f4</p>
+              <h3>Medicine Finder</h3>
+              <p>Search a medicine and instantly see which nearby pharmacies have it in stock — and which one is closest.</p>
+              <dl class="card-specs mono">
+                <div><dt>platform</dt><dd>Android · iOS</dd></div>
+                <div><dt>search</dt><dd>medicine → in-stock pharmacies</dd></div>
+                <div><dt>data</dt><dd>pharmacy stock via REST API</dd></div>
+                <div><dt>locate</dt><dd>nearest branch on the map</dd></div>
+              </dl>
+              <p class="card-tags mono"><span>FLUTTER</span><span>FIREBASE</span><span>REST API</span><span>GOOGLE MAPS</span><span>PROVIDER</span></p>
+              <div class="card-detail"><div class="card-detail-in">
+                <p class="card-d-tag mono">▸ THE BUILD</p>
+                <ul class="card-d-list">
+                  <li>Medicine search hits a REST API of live pharmacy stock.</li>
+                  <li>Results ranked by distance using device location + maps.</li>
+                </ul>
+                <p class="card-d-tag mono">▸ THE RESULT</p>
+                <p class="card-d-res">Find the nearest pharmacy that actually has it.</p>
+              </div></div>
+              <div class="card-foot">
+                <a class="card-link mono" href="https://github.com/usman-codes-01" target="_blank" rel="noopener" data-cursor="link">GITHUB ↗</a>
+                <span class="card-toggle mono"><span class="card-label">CASE</span><span class="card-chev">▸</span></span>
+              </div>
+            </div>
+          </article>
+
+          <a class="card card--end magnetic" data-cursor="link" href="https://github.com/usman-codes-01" target="_blank" rel="noopener">
+            <span class="card-end-text">MORE EXPERIMENTS<br>LIVE ON GITHUB&nbsp;↗</span>
+            <span class="card-end-sub mono">github.com/usman-codes-01</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 · CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+        <p class="sec-idx mono" data-reveal>05 / CONTACT — exit code 0 · the part recruiters scroll to first</p>
+        <h2 class="contact-big" data-split>GOT A REAL<br>APP TO BUILD?</h2>
+        <p class="contact-sub" data-reveal>Recruiter, founder, or just carrom-curious — my inbox answers fast.</p>
+
+        <div class="contact-links">
+          <a class="contact-link magnetic" data-cursor="link" href="https://wa.me/923144603037" target="_blank" rel="noopener">WHATSAPP<span class="amber">↗</span></a>
+          <a class="contact-link magnetic" data-cursor="link" href="https://github.com/usman-codes-01" target="_blank" rel="noopener">GITHUB<span class="amber">↗</span></a>
+          <a class="contact-link magnetic" data-cursor="link" href="https://www.linkedin.com/in/muhammad-usman-81994a324/" target="_blank" rel="noopener">LINKEDIN<span class="amber">↗</span></a>
+          <a class="contact-link magnetic" data-cursor="link" href="https://www.instagram.com/usman.codes" target="_blank" rel="noopener">INSTAGRAM<span class="amber">↗</span></a>
+        </div>
+      </div>
+
+      <div class="tips" id="tips" data-cursor="view" title="click for another tip">
+        <div class="tips-head mono">
+          <span class="tips-d"></span><span class="tips-d"></span><span class="tips-d"></span>
+          <span class="tips-file">tips.sh — usman@codes</span>
+        </div>
+        <div class="tips-screen mono">
+          <p class="tips-line"><span class="amber">usman@codes</span><span class="tips-path">:~$</span> <span id="tipsCmd"></span></p>
+          <p class="tips-out" id="tipsOut"></p>
+        </div>
+        <p class="tips-hint mono">// click anywhere on the terminal for another →</p>
+      </div>
+
+      <footer class="footer">
+        <span class="mono">© 2026 MUHAMMAD USMAN — FAISALABAD, PK</span>
+        <span class="mono">VANILLA JS · GSAP · LENIS — NO FRAMEWORKS HARMED</span>
+        <span class="mono">@USMAN.CODES</span>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
