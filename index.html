@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
   <meta name="theme-color" content="#0B0D0A">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23FFB000' d='M16 2c-6 0-10 4.4-10 10 0 7 10 18 10 18s10-11 10-18c0-5.6-4-10-10-10zm0 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8z'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FFB000' d='M14.314 0L2.3 12l3.69 3.7L21.667.012h-7.353zm.043 10.926l-6.475 6.475L14.357 24h7.353l-6.46-6.466 6.46-6.608z'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -323,49 +323,6 @@
 
           <article class="card" data-cursor="view" data-expand>
             <div class="card-visual">
-              <div class="card-art art-route" aria-hidden="true">
-                <svg viewBox="0 0 300 170" preserveAspectRatio="xMidYMid meet">
-                  <path class="route-ghost" d="M20 140 L80 140 L80 80 L150 80 L150 30 L240 30 L240 96 L280 96"/>
-                  <path class="route-live"  d="M20 140 L80 140 L80 80 L150 80 L150 30 L240 30 L240 96 L280 96"/>
-                  <circle class="route-node" cx="20"  cy="140" r="5"/>
-                  <circle class="route-node" cx="80"  cy="80"  r="5"/>
-                  <circle class="route-node" cx="150" cy="30"  r="5"/>
-                  <circle class="route-node route-node--hot" cx="240" cy="96" r="6"/>
-                  <circle class="route-node" cx="280" cy="96"  r="5"/>
-                </svg>
-                <p class="art-label mono">objective: minimized · 4 stops · 12.7 km</p>
-              </div>
-            </div>
-            <div class="card-body">
-              <p class="card-idx mono">commit 7e0b44d</p>
-              <h3>Smart Location Optimizer</h3>
-              <p>An ML backend that decides where things should go — route and location optimization with Random Forest and OR-Tools.</p>
-              <dl class="card-specs mono">
-                <div><dt>type</dt><dd>REST backend service</dd></div>
-                <div><dt>model</dt><dd>Random Forest predictor</dd></div>
-                <div><dt>solver</dt><dd>Google OR-Tools</dd></div>
-                <div><dt>i/o</dt><dd>stops in → optimal route out</dd></div>
-              </dl>
-              <p class="card-tags mono"><span>FASTAPI</span><span>RANDOM FOREST</span><span>OR-TOOLS</span><span>PYTHON</span></p>
-              <div class="card-detail"><div class="card-detail-in">
-                <p class="card-d-tag mono">▸ THE BUILD</p>
-                <ul class="card-d-list">
-                  <li>Random Forest scores cost &amp; feasibility for each candidate node.</li>
-                  <li>OR-Tools solves the routing on top of those predictions.</li>
-                  <li>Served as a clean FastAPI REST endpoint.</li>
-                </ul>
-                <p class="card-d-tag mono">▸ THE RESULT</p>
-                <p class="card-d-res">Give it the stops, it returns the shortest honest route.</p>
-              </div></div>
-              <div class="card-foot">
-                <a class="card-link mono" href="https://github.com/usman-codes-01" target="_blank" rel="noopener" data-cursor="link">GITHUB ↗</a>
-                <span class="card-toggle mono"><span class="card-label">CASE</span><span class="card-chev">▸</span></span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card" data-cursor="view" data-expand>
-            <div class="card-visual">
               <div class="card-art art-emotion" aria-hidden="true">
                 <p class="emo mono">angry</p><p class="emo mono">disgust</p><p class="emo mono">fear</p>
                 <p class="emo emo--hot mono">happy&nbsp;0.94</p><p class="emo mono">neutral</p>
@@ -374,18 +331,19 @@
             </div>
             <div class="card-body">
               <p class="card-idx mono">commit c91d3af</p>
-              <h3>Emotion Recognition</h3>
-              <p>Seven facial emotions classified on-device with TFLite — no server round-trip, works in airplane mode.</p>
+              <h3>Face &amp; Emotion Recognition</h3>
+              <p>Detects the face in the live camera frame, then classifies seven emotions on-device with TFLite — no server round-trip, works in airplane mode.</p>
               <dl class="card-specs mono">
                 <div><dt>inference</dt><dd>on-device · fully offline</dd></div>
+                <div><dt>detection</dt><dd>real-time face detection</dd></div>
                 <div><dt>model</dt><dd>EfficientNet-B0 (HSEmotion)</dd></div>
                 <div><dt>classes</dt><dd>7 emotions</dd></div>
-                <div><dt>latency</dt><dd>real-time, no server</dd></div>
               </dl>
-              <p class="card-tags mono"><span>FLUTTER</span><span>TFLITE</span><span>EFFICIENTNET-B0</span><span>HSEMOTION</span></p>
+              <p class="card-tags mono"><span>FLUTTER</span><span>TFLITE</span><span>FACE DETECTION</span><span>EFFICIENTNET-B0</span><span>HSEMOTION</span></p>
               <div class="card-detail"><div class="card-detail-in">
                 <p class="card-d-tag mono">▸ THE BUILD</p>
                 <ul class="card-d-list">
+                  <li>Face detection locates and crops the face from each live camera frame.</li>
                   <li>EfficientNet-B0 (HSEmotion) quantized down to a TFLite model.</li>
                   <li>Runs on the live camera frame — nothing ever leaves the phone.</li>
                 </ul>
@@ -465,6 +423,44 @@
                 </ul>
                 <p class="card-d-tag mono">▸ THE RESULT</p>
                 <p class="card-d-res">Find the nearest pharmacy that actually has it.</p>
+              </div></div>
+              <div class="card-foot">
+                <a class="card-link mono" href="https://github.com/usman-codes-01" target="_blank" rel="noopener" data-cursor="link">GITHUB ↗</a>
+                <span class="card-toggle mono"><span class="card-label">CASE</span><span class="card-chev">▸</span></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-cursor="view" data-expand>
+            <div class="card-visual">
+              <div class="card-art art-scan" aria-hidden="true">
+                <div class="scan-card">
+                  <span class="scan-chip"></span>
+                  <span class="scan-num mono">5412 •••• •••• 3037</span>
+                  <span class="scan-beam"></span>
+                </div>
+                <p class="art-label mono">card detected · reading digits…</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-idx mono">commit f7a1e08</p>
+              <h3>AI Scanner</h3>
+              <p>Point the camera at a debit or credit card and it lifts the number, expiry and name on-device — nothing ever leaves the phone.</p>
+              <dl class="card-specs mono">
+                <div><dt>inference</dt><dd>on-device · fully offline</dd></div>
+                <div><dt>pipeline</dt><dd>card detect → OCR digits</dd></div>
+                <div><dt>model</dt><dd>TFLite text recognition</dd></div>
+                <div><dt>latency</dt><dd>real-time, no server</dd></div>
+              </dl>
+              <p class="card-tags mono"><span>FLUTTER</span><span>TFLITE</span><span>OCR</span><span>ON-DEVICE</span></p>
+              <div class="card-detail"><div class="card-detail-in">
+                <p class="card-d-tag mono">▸ THE BUILD</p>
+                <ul class="card-d-list">
+                  <li>An on-device model finds the card, then OCR reads the digits straight off the live camera frame.</li>
+                  <li>Runs entirely on the phone — card data never touches a server.</li>
+                </ul>
+                <p class="card-d-tag mono">▸ THE RESULT</p>
+                <p class="card-d-res">Point at a card, get its details — fully offline.</p>
               </div></div>
               <div class="card-foot">
                 <a class="card-link mono" href="https://github.com/usman-codes-01" target="_blank" rel="noopener" data-cursor="link">GITHUB ↗</a>
