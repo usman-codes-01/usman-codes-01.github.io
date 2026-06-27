@@ -768,6 +768,74 @@
   })();
 
   /* ========================================================================
+     DEMO LIGHTBOX — VIEW DEMO opens the project's screenshots fullscreen
+     ======================================================================== */
+  (function demoLightbox() {
+    const box = $("#lightbox");
+    if (!box) return;
+    const imgEl   = $("#lbImg");
+    const capEl   = $("#lbCap");
+    const countEl = $("#lbCount");
+    const prevBtn = $("#lbPrev");
+    const nextBtn = $("#lbNext");
+    const closeBtn = $("#lbClose");
+
+    let shots = [];      // [{ src, alt }]
+    let idx = 0;
+
+    function render() {
+      const s = shots[idx];
+      if (!s) return;
+      imgEl.src = s.src;
+      imgEl.alt = s.alt || "";
+      capEl.textContent = s.alt || "";
+      countEl.textContent = `${idx + 1} / ${shots.length}`;
+      const navDisp = shots.length < 2 ? "none" : "";
+      prevBtn.style.display = navDisp;
+      nextBtn.style.display = navDisp;
+      countEl.style.display = navDisp;
+    }
+    function go(n) { idx = (idx + n + shots.length) % shots.length; render(); }
+
+    function open(list) {
+      shots = list; idx = 0; render();
+      box.classList.add("is-open");
+      box.setAttribute("aria-hidden", "false");
+      document.documentElement.style.overflow = "hidden";
+    }
+    function close() {
+      box.classList.remove("is-open");
+      box.setAttribute("aria-hidden", "true");
+      document.documentElement.style.overflow = "";
+      imgEl.src = "";
+    }
+
+    // wire every VIEW DEMO button to its own screenshots (cards + WorkIn case)
+    $$("[data-demo]").forEach((btn) => {
+      // nearest ancestor that actually holds this button's screenshots
+      let scope = btn.parentElement;
+      while (scope && !scope.querySelector(".card-demo")) scope = scope.parentElement;
+      const imgs = scope ? $$(".card-demo img", scope).map((im) => ({ src: im.src, alt: im.alt })) : [];
+      if (!imgs.length) { btn.style.display = "none"; return; }   // no pics yet → hide demo
+      btn.addEventListener("click", (e) => {
+        e.preventDefault(); e.stopPropagation();
+        open(imgs);
+      });
+    });
+
+    prevBtn.addEventListener("click", () => go(-1));
+    nextBtn.addEventListener("click", () => go(1));
+    closeBtn.addEventListener("click", close);
+    box.addEventListener("click", (e) => { if (e.target === box) close(); });
+    document.addEventListener("keydown", (e) => {
+      if (!box.classList.contains("is-open")) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") go(-1);
+      else if (e.key === "ArrowRight") go(1);
+    });
+  })();
+
+  /* ========================================================================
      keep layout honest after fonts settle
      ======================================================================== */
   window.addEventListener("load", () => ScrollTrigger.refresh());

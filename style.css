@@ -507,6 +507,7 @@ html.cursor--hide .cursor-dot, html.cursor--hide .cursor-ring { opacity: 0; }
   transition: border-color .3s ease;
 }
 .case-link:hover { border-color: var(--amber); }
+.case-links { display: flex; flex-wrap: wrap; gap: 14px 28px; }
 
 .case-steps {
   position: relative; z-index: 1;
@@ -892,6 +893,34 @@ html.cursor--hide .cursor-dot, html.cursor--hide .cursor-ring { opacity: 0; }
   50%      { top: 88%; opacity: 1; }
 }
 
+/* metermind art — an electricity meter LCD over rising usage bars */
+.art-meter { flex-direction: column; gap: 14px; }
+.meter-lcd {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 12px 18px; border-radius: 8px;
+  background: linear-gradient(135deg, #1E1812, #14100A);
+  border: 1px solid rgba(255, 176, 0, .35);
+  box-shadow: inset 0 0 0 1px rgba(255, 176, 0, .05);
+}
+.meter-label { font-size: 10px; letter-spacing: .2em; color: var(--ash); }
+.meter-read { font-size: 26px; letter-spacing: .12em; color: var(--bone); }
+.meter-read b { color: var(--amber); font-weight: 700; }
+.meter-bars { display: flex; align-items: flex-end; gap: 6px; height: 36px; }
+.meter-bars span {
+  width: 9px; background: var(--amber-dim); border-radius: 2px 2px 0 0;
+  transform-origin: bottom; animation: meter-rise 2.6s ease-in-out infinite;
+}
+.meter-bars span:nth-child(1) { height: 30%; animation-delay: 0s; }
+.meter-bars span:nth-child(2) { height: 55%; animation-delay: .15s; }
+.meter-bars span:nth-child(3) { height: 40%; animation-delay: .3s; }
+.meter-bars span:nth-child(4) { height: 75%; background: var(--amber); animation-delay: .45s; }
+.meter-bars span:nth-child(5) { height: 60%; animation-delay: .6s; }
+.meter-bars span:nth-child(6) { height: 90%; background: var(--amber); animation-delay: .75s; }
+@keyframes meter-rise {
+  0%, 100% { transform: scaleY(.82); opacity: .7; }
+  50%      { transform: scaleY(1);   opacity: 1; }
+}
+
 /* project spec sheet — each card states its specifications */
 .card-specs {
   display: grid; gap: 7px;
@@ -945,6 +974,33 @@ html.cursor--hide .cursor-dot, html.cursor--hide .cursor-ring { opacity: 0; }
 }
 .card-d-list li::before { content: "▸"; color: var(--ash); font-family: var(--mono); font-size: 10px; }
 .card-d-res { font-size: 14px; color: var(--bone); }
+
+/* expanded case — screenshots + action buttons */
+.card-shots {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 62%;
+  gap: 10px; margin-top: 12px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding-bottom: 6px; -webkit-overflow-scrolling: touch;
+}
+.card-shots::-webkit-scrollbar { height: 4px; }
+.card-shots::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+.card-shots img {
+  width: 100%; aspect-ratio: 9 / 16; object-fit: cover;
+  border-radius: 10px; border: 1px solid var(--line);
+  scroll-snap-align: start; background: #14100A;
+}
+.card-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.card-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--bone-dim);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: .65em 1.3em;
+  transition: color .3s ease, border-color .3s ease, background .3s ease;
+}
+.card-btn:hover { color: var(--ink); background: var(--amber); border-color: var(--amber); }
+.card-btn--solid { color: var(--ink); background: var(--amber); border-color: var(--amber); }
+.card-btn--solid:hover { filter: brightness(1.08); }
 
 .card-foot {
   display: flex; align-items: center; justify-content: space-between; gap: 14px;
@@ -1207,4 +1263,72 @@ html.cursor--hide .cursor-dot, html.cursor--hide .cursor-ring { opacity: 0; }
   .phone .p-route path { stroke-dashoffset: 0; opacity: 1; }
   .phone .p-scan { opacity: 0; }
   .caret { display: none; }
+}
+
+/* ========================================================================
+   DEMO LIGHTBOX — fullscreen project screenshots
+   ======================================================================== */
+.lightbox {
+  position: fixed; inset: 0; z-index: 200;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+  gap: clamp(8px, 3vw, 28px);
+  padding: clamp(16px, 5vw, 48px);
+  background: rgba(6, 7, 5, .92);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .35s ease, visibility .35s ease;
+}
+.lightbox.is-open { opacity: 1; visibility: visible; pointer-events: auto; }
+
+.lb-stage {
+  margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px;
+  max-height: 100%; min-width: 0;
+}
+.lb-img {
+  max-width: 100%; max-height: 78vh; width: auto; height: auto;
+  object-fit: contain; border-radius: 12px;
+  border: 1px solid var(--line); background: #14100A;
+  box-shadow: 0 30px 90px rgba(0,0,0,.6);
+  transition: opacity .25s ease;
+}
+.lb-cap {
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--bone-dim); text-align: center;
+}
+
+.lb-nav {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 52px; height: 52px; flex: none;
+  font-size: 30px; line-height: 1; color: var(--bone);
+  border: 1px solid var(--line); border-radius: 999px;
+  background: rgba(20,16,10,.6);
+  transition: color .3s ease, background .3s ease, border-color .3s ease;
+}
+.lb-nav:hover { color: var(--ink); background: var(--amber); border-color: var(--amber); }
+.lb-nav[disabled] { opacity: .25; pointer-events: none; }
+
+.lb-close {
+  position: absolute; top: clamp(14px, 4vw, 32px); right: clamp(14px, 4vw, 32px);
+  z-index: 2; font-size: 11px; letter-spacing: .18em;
+  color: var(--bone-dim);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: .7em 1.2em; background: rgba(20,16,10,.6);
+  transition: color .3s ease, background .3s ease, border-color .3s ease;
+}
+.lb-close:hover { color: var(--ink); background: var(--amber); border-color: var(--amber); }
+
+.lb-count {
+  position: absolute; bottom: clamp(14px, 4vw, 32px); left: 50%; transform: translateX(-50%);
+  font-size: 11px; letter-spacing: .2em; color: var(--bone-dim);
+}
+
+@media (max-width: 640px) {
+  .lightbox { grid-template-columns: 1fr; grid-auto-rows: min-content; justify-items: center; }
+  .lb-stage { order: -1; }
+  .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); }
+  .lb-prev { left: 10px; } .lb-next { right: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox, .lb-img { transition: none; }
 }
