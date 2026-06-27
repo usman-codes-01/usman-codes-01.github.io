@@ -699,8 +699,8 @@ html.cursor--hide .cursor-dot, html.cursor--hide .cursor-ring { opacity: 0; }
 .projects { position: relative; }
 .proj-pin {
   display: flex; flex-direction: column;
-  padding: 15vh 0 10vh;
-  gap: 6vh;
+  padding: 9vh 0 6vh;
+  gap: 3.5vh;
 }
 /* a free rail — drag or swipe sideways; vertical scroll is never held hostage */
 .proj-track {
@@ -720,7 +720,7 @@ html.cursor--hide .cursor-dot, html.cursor--hide .cursor-ring { opacity: 0; }
   position: relative;
   flex: 0 0 auto;
   scroll-snap-align: start;
-  width: min(540px, 86vw);
+  width: min(370px, 80vw);
   background: var(--ink-2);
   border: 1px solid var(--line);
   border-radius: 24px;
@@ -732,7 +732,7 @@ html.cursor--hide .cursor-dot, html.cursor--hide .cursor-ring { opacity: 0; }
 .card-hit { position: absolute; inset: 0; z-index: 5; border-radius: 24px; }
 
 .card-visual {
-  position: relative; height: clamp(190px, 26vh, 260px);
+  position: relative; height: clamp(120px, 15vh, 160px);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
   background: linear-gradient(150deg, var(--ink-3), var(--ink));
@@ -938,14 +938,14 @@ html.cursor--hide .cursor-dot, html.cursor--hide .cursor-ring { opacity: 0; }
 }
 .card-specs dd { margin: 0; color: var(--bone-dim); }
 
-.card-body { display: flex; flex-direction: column; gap: 12px; padding: clamp(20px, 2.4vw, 32px); flex: 1; }
+.card-body { display: flex; flex-direction: column; gap: 8px; padding: clamp(14px, 1.5vw, 20px); flex: 1; }
 .card-idx { font-size: 11px; letter-spacing: .2em; color: var(--amber); }
 .card-body h3 {
   font-family: var(--display);
-  font-size: clamp(24px, 2.6vw, 34px); font-weight: 700;
+  font-size: clamp(18px, 1.8vw, 23px); font-weight: 700;
   letter-spacing: -.01em; line-height: 1;
 }
-.card-body > p:not(.mono) { color: var(--bone-dim); font-size: 15px; max-width: 44ch; }
+.card-body > p:not(.mono) { color: var(--bone-dim); font-size: 13.5px; line-height: 1.5; max-width: 44ch; }
 .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
 .card-tags span {
   font-size: 9px; letter-spacing: .14em;
